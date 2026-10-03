@@ -1,0 +1,147 @@
+{
+  "name": "Piyush Tatrari",
+  "contact": [
+    "Gurugram, Haryana, India",
+    "Open to Remote",
+    "piyushtatrari654@gmail.com",
+    "+91 89792 76852",
+    "github.com/Piyushtatrari",
+    "linkedin.com/in/piyush-tatrari"
+  ],
+  "links": [
+    "https://github.com/Piyushtatrari",
+    "https://www.linkedin.com/in/piyush-tatrari/"
+  ],
+  "summary": "Full Stack Engineer with **2+ years of experience** at CustomerInsights.AI, an AI analytics company serving life-sciences commercial teams; promoted from **Junior Data Engineer** to **Associate Full Stack Engineer** in 2026. I work across the stack: **React.js**, **Next.js**, and **TypeScript** on the frontend, **Node.js/Express** and **Python/FastAPI** on the backend, and SQL throughout. Shipped features for **4 client-facing products** and built **10+ reusable components** in a 20-member agile team; now building **retrieval-augmented generation (RAG)**, **semantic search**, and **Unified Data Modeling** for ciATHENA 2.0.",
+  "experience": [
+    {
+      "org": "CustomerInsights.AI (CIAI)",
+      "location": "Gurugram, India",
+      "title": "Associate Full Stack Engineer",
+      "dates": "Apr 2026 – Present",
+      "lead": "Full-stack ownership on ciATHENA: closing out 1.0 and building the AI and data-modeling layer of 2.0.",
+      "points": [
+        "Own end-to-end delivery of features across **React.js**, **Next.js**, and **TypeScript** on the frontend and **Node.js/Express.js** and **Python** on the backend; took **ciATHENA 1.0** to release and started **ciATHENA 2.0**.",
+        "Build backend services in **Python** and **FastAPI** for ciATHENA 2.0, with async endpoints and typed request/response validation behind data- and AI-driven features.",
+        "Develop **RAG** and **semantic search** so users can query platform data in plain language, using text embeddings and vector retrieval to ground answers in real records.",
+        "Build **Unified Data Modeling (UDM)** workflows: source, schema, and table selection, entity and column review, mapping explanations, and batch approvals, with role-based permissions."
+      ]
+    },
+    {
+      "org": "CustomerInsights.AI (CIAI)",
+      "location": "Gurugram, India",
+      "title": "Junior Data Engineer",
+      "dates": "Sep 2024 – Mar 2026",
+      "lead": "Built analytics interfaces and data-review workflows for ciATHENA 0.1 and 1.0, along with the data validation behind them.",
+      "points": [
+        "Built production UI in **React.js**, **Next.js**, and **TypeScript** for ciATHENA 0.1 and 1.0, including **10+ reusable components** that cut duplicated code and sped up feature delivery.",
+        "Shipped features for **4 client-facing products** used by life-sciences clients (**LENS**, **TPA**, **CORE**, and **Patient Flow**), with REST API integration and responsive desktop-to-tablet layouts.",
+        "Built conversational analytics interfaces with streaming **Server-Sent Events (SSE)**, session restore, and duplicate-request guards; fixed an **ECharts** bug that recovered **11 product series across 21 months**, covered by **14 regression tests**.",
+        "Contributed to data-review and match-and-merge (MDM) workflows: review screens, batch approvals, and safeguards that hold uncertain matches for human review, backed by **Python** and **SQL**.",
+        "Added **Jest** unit tests, ran end-to-end QA (edge cases, empty and error states, regression), and refactored **5+ modules**."
+      ]
+    }
+  ],
+  "skills": {
+    "Frontend": [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "HTML5",
+      "CSS3",
+      "React Hooks",
+      "Context API",
+      "Material UI",
+      "Zustand",
+      "TanStack Query",
+      "ECharts",
+      "Responsive Design",
+      "Component Architecture",
+      "Performance Optimization"
+    ],
+    "Backend & APIs": [
+      "Node.js",
+      "Express.js",
+      "Python",
+      "FastAPI",
+      "REST API Design",
+      "Server-Sent Events",
+      "JSON",
+      "PostgreSQL",
+      "SQL",
+      "MongoDB",
+      "Pagination & Filtering"
+    ],
+    "AI & Data": [
+      "Retrieval-Augmented Generation (RAG)",
+      "Semantic/Vector Search",
+      "Text Embeddings",
+      "LLM Integration",
+      "Unified Data Modeling (UDM)",
+      "Data Validation & Normalization"
+    ],
+    "Testing & Quality": [
+      "Jest",
+      "pytest",
+      "End-to-End QA",
+      "SonarQube",
+      "Code Review",
+      "Debugging",
+      "Root-Cause Analysis"
+    ],
+    "Tools & Practices": [
+      "Git",
+      "GitHub",
+      "Figma",
+      "Microsoft Azure",
+      "VS Code",
+      "Agile/Scrum",
+      "SDLC",
+      "Jupyter Notebook",
+      "Power BI"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Developer Portfolio",
+      "stack": "Next.js 16, React 19, TypeScript",
+      "repo": "https://github.com/Piyushtatrari/piyush-portfolio-v3",
+      "dates": "2026",
+      "points": [
+        "Built a statically exported portfolio on the Next.js App Router, using server components by default and client components only where there is interaction, with light and dark themes and animated SVG."
+      ]
+    },
+    {
+      "name": "Churn Prediction & Analysis",
+      "stack": "Python, scikit-learn, Flask",
+      "repo": "https://github.com/Piyushtatrari/Churn_Prediction",
+      "dates": "Nov 2023 – Dec 2023",
+      "points": [
+        "Built an end-to-end ML pipeline (EDA, feature engineering, SMOTEENN rebalancing, Decision Tree and Random Forest) reaching **~93% accuracy**; served predictions through a Flask app and wrote churn-reduction recommendations."
+      ]
+    },
+    {
+      "name": "SkySketch",
+      "stack": "Computer Vision Drawing App",
+      "repo": "https://github.com/Piyushtatrari/SkySketch",
+      "dates": "Sep 2023 – Oct 2023",
+      "points": [
+        "Developed a real-time, gesture-controlled drawing canvas using OpenCV, NumPy, and MediaPipe, and tuned the hand tracking until strokes followed the hand smoothly."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "title": "B.Tech, Computer Science & Engineering",
+      "school": "Graphic Era Hill University, Bhimtal",
+      "note": "CGPA 8.62",
+      "dates": "Aug 2020 – Aug 2024",
+      "points": []
+    }
+  ],
+  "certifications": [
+    "Data Analysis with Python – IBM / Cognitive Class; Google Data Analytics coursework (Foundations, Data-Driven Decisions, Data Preparation) – Coursera",
+    "Virtual experience programs (Forage): Accenture Nordics Developer, J.P. Morgan Software Engineering, Tata Data Visualisation"
+  ]
+}

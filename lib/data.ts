@@ -1,4 +1,12 @@
 // All page content lives here so copy edits never touch layout code.
+// Experience, education and project blurbs come from content/resume.json, which
+// resume-sync/ regenerates from the resume PDF. Edit the resume, not those sections.
+import resume from "@/content/resume.json";
+
+const startOf = (dates: string) => Date.parse(`1 ${dates.split(" – ")[0]}`);
+const when = (dates: string) => dates.replace(" – ", " to ").replace("Present", "now");
+// Recomputed on every build, so the number stays current without edits.
+const yearsShipping = Math.floor((Date.now() - Math.min(...resume.experience.map((r) => startOf(r.dates)))) / (365.25 * 864e5));
 
 export const profile = {
   name: "Piyush Tatrari",
@@ -20,8 +28,8 @@ export const nav = [
 ] as const;
 
 export const stats = [
-  { value: 2, suffix: " yrs", label: "shipping production code, promoted in 2026" },
-  { value: 4, label: "production dashboards shipped" },
+  { value: yearsShipping, suffix: " yrs", label: "shipping production code, promoted in 2026" },
+  { value: 4, label: "client-facing products I shipped features for" },
   { value: 10, suffix: "+", label: "reusable React components" },
   { value: 14, label: "regression tests on one charting fix" },
 ];
@@ -93,17 +101,17 @@ export const cases: CaseStudy[] = [
   },
   {
     key: "dash",
-    meta: "ciPARTHENON, 2024 to 2026",
-    title: "Four production dashboards",
-    cardTitle: "Four production dashboards",
-    summary: "LENS, TPA, CORE and Patient Flow on ciPARTHENON, from desktop down to iPad.",
-    problem: "Analysts worked across four product areas (LENS, TPA, CORE, Patient Flow) that each needed their own dashboard.",
+    meta: "Client products, 2024 to 2026",
+    title: "Four client-facing products",
+    cardTitle: "Four client-facing products",
+    summary: "LENS, TPA, CORE and Patient Flow: products life-sciences clients use every day, from desktop down to iPad.",
+    problem: "Life-sciences clients rely on four separate products (LENS, TPA, CORE, Patient Flow), each with its own workflows and data.",
     built: [
       "10+ reusable React components shared across modules, which cut duplicated code and sped up delivery.",
       "REST API integration with loading, empty and error states handled.",
       "Responsive layouts that hold up from desktop down to iPad.",
     ],
-    outcome: "All four dashboards shipped to production.",
+    outcome: "Features shipped to production across all four products.",
     stack: ["React", "Next.js", "TypeScript", "Material UI", "ECharts", "TanStack Query"],
   },
   {
@@ -145,7 +153,7 @@ export type Project = {
   wide?: boolean;
 };
 
-export const projects: Project[] = [
+const projectCards: Project[] = [
   {
     name: "InvoiceFlow",
     thumb: "invoice",
@@ -155,46 +163,32 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "React"],
     repo: "https://github.com/Piyushtatrari/Invoiceflow",
   },
-  { name: "LearnGenix", thumb: "learn", description: "E-learning platform with JWT auth, role-based access and interactive quizzes.", tags: ["React", "Node", "MongoDB"] },
-  { name: "Churn Prediction", thumb: "tree", description: "End-to-end ML pipeline: EDA, feature engineering and a Decision Tree at 93.7% accuracy.", tags: ["Python", "pandas", "pytest"], repo: "https://github.com/Piyushtatrari/Churn_Prediction" },
+  { name: "LearnGenix", thumb: "learn", description: "E-learning website with courses, quizzes and sample papers. My B.Tech major project.", tags: ["HTML", "CSS", "JavaScript"] },
+  { name: "Churn Prediction", thumb: "tree", description: "End-to-end ML pipeline: EDA, feature engineering and a Decision Tree at ~93% accuracy.", tags: ["Python", "scikit-learn", "Flask"], repo: "https://github.com/Piyushtatrari/Churn_Prediction" },
   { name: "SkySketch", thumb: "sketch", description: "Draw in the air with a fingertip. Real-time hand tracking on a webcam feed.", tags: ["OpenCV", "MediaPipe", "NumPy"], repo: "https://github.com/Piyushtatrari/SkySketch" },
   { name: "Krypt", thumb: "chain", description: "Send ETH through a smart contract from a React UI, with the wallet connected via ethers.js.", tags: ["React", "ethers.js", "Web3"], repo: "https://github.com/Piyushtatrari/Krypt" },
   { name: "Sorting Visualizer", thumb: "sort", description: "Watch sorting algorithms rearrange bars step by step. Hover the card to sort.", tags: ["JavaScript", "CSS"], repo: "https://github.com/Piyushtatrari/Sorting_visualization" },
 ];
 
+// A card keeps its own copy unless the resume describes the same repo; then the resume wins.
+const resumeProjects = new Map(resume.projects.map((p) => [p.repo, p]));
+export const projects: Project[] = projectCards.map((p) => {
+  const r = p.repo ? resumeProjects.get(p.repo) : undefined;
+  return r?.points[0] ? { ...p, description: r.points[0].replaceAll("**", "") } : p;
+});
+
 export type Role = { when: string; org: string; title: string; badge?: string; points: string[] };
 
 // **double asterisks** mark the phrase rendered in bold.
 export const roles: Role[] = [
-  {
-    when: "Apr 2026 to now",
-    org: "CustomerInsights.AI, Gurugram",
-    title: "Associate Full Stack Engineer",
-    badge: "Promoted",
-    points: [
-      "Own features end to end across **React, Next.js and TypeScript** on the front and **Node/Express and Python** on the back. Took ciATHENA 1.0 to release and started 2.0.",
-      "Build async **FastAPI** services with typed request and response validation for AI and data features.",
-      "Develop **RAG and semantic search** so users query platform data in natural language, grounded in real records.",
-      "Build **Unified Data Modeling** workflows: schema and table selection, column review, mapping explanations, role-aware batch approvals.",
-    ],
-  },
-  {
-    when: "Sep 2024 to Mar 2026",
-    org: "CustomerInsights.AI, Gurugram",
-    title: "Junior Data Engineer",
-    points: [
-      "Built **10+ reusable components** for ciATHENA 0.1 and 1.0 that cut duplicated code across modules.",
-      "Shipped features across **4 production dashboards** (LENS, TPA, CORE, Patient Flow) with REST integration and iPad-ready layouts.",
-      "Built streaming chat analytics over **Server-Sent Events**; an ECharts fix recovered **11 product series across 21 months**, covered by 14 regression tests.",
-      "Added **Jest** tests, ran end-to-end QA and refactored **5+ modules** in a 20-person agile team.",
-    ],
-  },
-  {
-    when: "2020 to 2024",
-    org: "Graphic Era Hill University",
-    title: "B.Tech, Computer Science and Engineering",
-    points: ["Graduated with a **CGPA of 8.62**. Built LearnGenix, Churn Prediction and SkySketch along the way."],
-  },
+  ...resume.experience.map((r, i, all) => ({
+    when: when(r.dates),
+    org: `${r.org.replace(/ \(.*\)$/, "")}, ${r.location.split(",")[0]}`,
+    title: r.title,
+    badge: all[i + 1]?.org === r.org ? "Promoted" : undefined,
+    points: r.points,
+  })),
+  ...resume.education.map((e) => ({ when: when(e.dates), org: e.school, title: e.title, points: [e.note, ...e.points].filter(Boolean) })),
 ];
 
 export const certifications = [

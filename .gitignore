@@ -4,3 +4,8 @@ out/
 next-env.d.ts
 *.tsbuildinfo
 .impeccable/
+
+# resume-sync
+resume-sync/.venv/
+__pycache__/
+resume-sync/_upload.pdf
