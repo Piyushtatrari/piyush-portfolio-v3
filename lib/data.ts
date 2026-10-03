@@ -5,8 +5,14 @@ import resume from "@/content/resume.json";
 
 const startOf = (dates: string) => Date.parse(`1 ${dates.split(" – ")[0]}`);
 const when = (dates: string) => dates.replace(" – ", " to ").replace("Present", "now");
-// Recomputed on every build, so the number stays current without edits.
-const yearsShipping = Math.floor((Date.now() - Math.min(...resume.experience.map((r) => startOf(r.dates)))) / (365.25 * 864e5));
+// First day of the earliest role; <CountUp since> turns it into whole years in the visitor's browser,
+// so the number stays current between deploys. The build-time value is only the no-JS fallback.
+export const careerStart = Math.min(...resume.experience.map((r) => startOf(r.dates)));
+export function yearsSince(start: number, now = new Date()) {
+  const s = new Date(start);
+  const beforeAnniversary = now.getMonth() < s.getMonth() || (now.getMonth() === s.getMonth() && now.getDate() < s.getDate());
+  return now.getFullYear() - s.getFullYear() - (beforeAnniversary ? 1 : 0);
+}
 
 export const profile = {
   name: "Piyush Tatrari",
@@ -28,7 +34,7 @@ export const nav = [
 ] as const;
 
 export const stats = [
-  { value: yearsShipping, suffix: " yrs", label: "shipping production code, promoted in 2026" },
+  { value: yearsSince(careerStart), since: careerStart, suffix: "+ yrs", label: "shipping production code, promoted in 2026" },
   { value: 4, label: "client-facing products I shipped features for" },
   { value: 10, suffix: "+", label: "reusable React components" },
   { value: 14, label: "regression tests on one charting fix" },

@@ -1,5 +1,6 @@
 "use client";
 
+import { yearsSince } from "@/lib/data";
 import { createElement, useEffect, useRef, type CSSProperties, type ElementType, type PointerEvent, type ReactNode } from "react";
 
 const reducedMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -36,11 +37,12 @@ export function Reveal({ as = "div", className = "", delay = 0, style, children,
   return createElement(as, { ref, className: `reveal ${className}`.trim(), style: { ...style, "--i": delay } as CSSProperties, ...rest }, children);
 }
 
-/** Counts from 0 to `to` with an ease-out once visible. */
-export function CountUp({ to }: { to: number }) {
+/** Counts from 0 to `to` with an ease-out once visible. With `since` (a timestamp), counts to the whole years since then, worked out in the browser. */
+export function CountUp({ to: built, since }: { to: number; since?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   useEffect(() => {
     const el = ref.current!;
+    const to = since ? yearsSince(since) : built;
     return observeOnce(el, () => {
       if (reducedMotion()) return void (el.textContent = String(to));
       const t0 = performance.now();
@@ -51,7 +53,7 @@ export function CountUp({ to }: { to: number }) {
       };
       requestAnimationFrame(tick);
     });
-  }, [to]);
+  }, [built, since]);
   return <span ref={ref}>0</span>;
 }
 

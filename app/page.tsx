@@ -103,7 +103,7 @@ export default function Home() {
               {stats.map((s, i) => (
                 <Reveal key={s.label} className="stat" delay={i}>
                   <b>
-                    <CountUp to={s.value} />
+                    <CountUp to={s.value} since={s.since} />
                     {s.suffix && <em>{s.suffix}</em>}
                   </b>
                   <span>{s.label}</span>
@@ -198,7 +198,7 @@ export default function Home() {
         <section className="blk" id="experience" style={{ background: "var(--surface-2)", borderBlock: "1px solid var(--line)" }}>
           <div className="shell">
             <Reveal className="sec-head">
-              <h2>From data engineer to full stack in two years</h2>
+              <h2>From data engineer to full stack in under two years</h2>
             </Reveal>
             <div className="timeline">
               <div className="tl-rail" aria-hidden="true"><div className="tl-fill" /></div>
