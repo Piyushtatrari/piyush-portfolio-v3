@@ -84,7 +84,7 @@ def parse(pdf_bytes):
             elif section == "projects":
                 name, _, stack = head.partition(" – ")
                 links = _links(page, spans)
-                entry = {"name": name, "stack": stack.replace("[GitHub]", "").strip(), "repo": links[0] if links else None,
+                entry = {"name": name, "stack": re.sub(r"\[\w+\]", "", stack).strip(), "repo": next((l for l in links if "github.com" in l), None),
                          "dates": dates, "points": []}
                 out["projects"].append(entry)
             else:
