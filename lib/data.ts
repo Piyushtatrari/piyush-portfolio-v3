@@ -92,9 +92,9 @@ export type CaseStudy = {
 export const cases: CaseStudy[] = [
   {
     key: "rag",
-    meta: "ciATHENA 2.0, 2026 to now",
+    meta: "ciATHENA, 2026 to now",
     title: "RAG and semantic search",
-    cardTitle: "RAG and semantic search for ciATHENA 2.0",
+    cardTitle: "RAG and semantic search in ciATHENA",
     summary: "Ask the platform a question in plain English. Answers are grounded in real records through embeddings and vector retrieval, served by async FastAPI.",
     problem: "Business users needed answers from platform data without writing SQL or learning the schema.",
     built: [
@@ -102,7 +102,7 @@ export const cases: CaseStudy[] = [
       "Text embeddings and vector retrieval, so every answer is grounded in real records the user can check.",
       "Next.js and TypeScript UI for asking questions and reading sourced answers.",
     ],
-    outcome: "Core of the ciATHENA 2.0 AI layer, now in active development.",
+    outcome: "Core of ciATHENA's AI layer, now in active development.",
     stack: ["Python", "FastAPI", "Embeddings", "Vector search", "Next.js", "TypeScript"],
   },
   {
@@ -122,7 +122,7 @@ export const cases: CaseStudy[] = [
   },
   {
     key: "sse",
-    meta: "ciATHENA 1.0, 2025",
+    meta: "ciATHENA, 2025",
     title: "Streaming conversational analytics",
     cardTitle: "Streaming conversational analytics",
     summary: "Server-Sent Events, session restore, duplicate-request guards, and a charting fix with 14 tests.",
@@ -133,15 +133,15 @@ export const cases: CaseStudy[] = [
   },
   {
     key: "mdm",
-    meta: "ciATHENA 1.0 and 2.0",
-    title: "Match and merge review, plus Unified Data Modeling",
-    cardTitle: "Match and merge review, plus Unified Data Modeling",
+    meta: "ciATHENA",
+    title: "Match and merge review, plus data-mapping workflows",
+    cardTitle: "Match and merge review, plus data-mapping workflows",
     summary: "Review screens and batch approvals for master data. Deterministic safeguards keep uncertain matches out of the golden record.",
     problem: "Master data from many sources had to be merged into golden records without letting doubtful matches through.",
     built: [
       "Review screens and batch approvals for match and merge.",
       "Deterministic safeguards that hold uncertain matches for a human, backed by Python and guarded SQL.",
-      "UDM workflows: source, schema and table selection, entity and column review, mapping explanations and role-aware approvals.",
+      "Data-mapping workflows: source, schema and table selection, entity and column review, mapping explanations and role-aware approvals.",
     ],
     outcome: "Stewards review in batches while uncertain matches stay out of the golden record.",
     stack: ["React", "TypeScript", "Zustand", "Python", "SQL"],

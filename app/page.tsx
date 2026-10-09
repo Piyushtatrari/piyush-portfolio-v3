@@ -283,7 +283,7 @@ export default function Home() {
             <Reveal className="facts" delay={2}>
               <h3>Now working on</h3>
               <ul>
-                <li><RocketLaunchIcon /><span>ciATHENA 2.0: RAG, semantic search and data modeling</span></li>
+                <li><RocketLaunchIcon /><span>ciATHENA: agentic AI, RAG and data-mapping workflows</span></li>
                 <li><ReceiptIcon /><span>InvoiceFlow, in Next.js and TypeScript</span></li>
               </ul>
               <h3>Certifications</h3>

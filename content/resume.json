@@ -1,32 +1,34 @@
 {
   "name": "Piyush Tatrari",
   "contact": [
-    "Gurugram, Haryana, India",
-    "Open to Remote",
-    "Portfolio: piyushtatrari-fullstackdeveloper.netlify.app",
+    "Gurugram, India (Remote OK)",
     "piyushtatrari654@gmail.com",
     "+91 89792 76852",
-    "github.com/Piyushtatrari",
-    "linkedin.com/in/piyush-tatrari"
+    "Portfolio",
+    "GitHub",
+    "LinkedIn"
   ],
   "links": [
     "https://piyushtatrari-fullstackdeveloper.netlify.app/",
     "https://github.com/Piyushtatrari",
     "https://www.linkedin.com/in/piyush-tatrari/"
   ],
-  "summary": "Full Stack Engineer with **2+ years of experience** at CustomerInsights.AI, an AI analytics company serving life-sciences commercial teams; promoted from **Junior Data Engineer** to **Associate Full Stack Engineer** in 2026. I work across the stack: **React.js**, **Next.js**, and **TypeScript** on the frontend, **Node.js/Express** and **Python/FastAPI** on the backend, and SQL throughout. Shipped features for **4 client-facing products** and built **10+ reusable components** in a 20-member agile team; now building **retrieval-augmented generation (RAG)**, **semantic search**, and **Unified Data Modeling** for ciATHENA 2.0.",
+  "summary": "Full Stack Engineer with **2+ years of experience** at CustomerInsights.AI, working on **ciATHENA**, an agentic AI platform for pharma commercial teams. Built the interface for its first use cases as a Junior Data Engineer; since the promotion to Associate Full Stack Engineer, owns those use cases across frontend and backend and delivers them for several pharma clients. Works in **React.js**, **Next.js**, **TypeScript**, **Python** and **FastAPI**, builds **agentic AI**, **RAG** and **LLM** features with **LangChain** and **LangGraph**, and uses **GitHub Actions**, **Docker** and **Azure** for delivery. **Employee of the Quarter** in 2025 and 2026.",
   "experience": [
     {
       "org": "CustomerInsights.AI (CIAI)",
       "location": "Gurugram, India",
       "title": "Associate Full Stack Engineer",
       "dates": "Apr 2026 – Present",
-      "lead": "Full-stack ownership on ciATHENA: closing out 1.0 and building the AI and data-modeling layer of 2.0.",
+      "lead": "ciATHENA: full-stack ownership of the pharma use cases. Employee of the Quarter, September 2026.",
       "points": [
-        "Own end-to-end delivery of features across **React.js**, **Next.js**, and **TypeScript** on the frontend and **Node.js/Express.js** and **Python** on the backend; took **ciATHENA 1.0** to release and started **ciATHENA 2.0**.",
-        "Build backend services in **Python** and **FastAPI** for ciATHENA 2.0, with async endpoints and typed request/response validation behind data- and AI-driven features.",
-        "Develop **RAG** and **semantic search** so users can query platform data in plain language, using text embeddings and vector retrieval to ground answers in real records.",
-        "Build **Unified Data Modeling (UDM)** workflows: source, schema, and table selection, entity and column review, mapping explanations, and batch approvals, with role-based permissions."
+        "Own ciATHENA's core use cases (**MMM**, **FAST**, **Payer Spine**, **Data Stewardship** and others) across the **React.js** and **TypeScript** screens and the **Python** and **FastAPI** services behind them, and deliver them for separate pharma clients, each with its own data and features.",
+        "Build the backend for **Field Intelligence** and the **agentic AI** features around it: agent configuration screens, the service that stores and runs each agent, and **LangChain** and **LangGraph** workflows that pause for a person's approval before the agent acts.",
+        "Build the **LLM** and **RAG** layer: **embeddings** and a **vector database** for semantic search, so users can ask questions in plain language and get answers from their own data.",
+        "Own the backend for the data-mapping and review workflows (schema and entity review, mapping, batch approvals) on **PostgreSQL** and **Snowflake**.",
+        "Design the system with the team: a configuration-driven backend, so a new client or use case needs setup rather than a rebuild; services that scale; and results streamed to the UI over **Server-Sent Events** (**system design**).",
+        "Develop the ongoing-threads, collaboration and insights hub modules, with **ECharts** charts and **Zustand** state.",
+        "Implement **CI/CD** in **GitHub Actions**, run services in **Docker** on **Azure**, and test with **Jest** and **pytest**. Track work in **Jira**."
       ]
     },
     {
@@ -34,13 +36,14 @@
       "location": "Gurugram, India",
       "title": "Junior Data Engineer",
       "dates": "Sep 2024 – Mar 2026",
-      "lead": "Built analytics interfaces and data-review workflows for ciATHENA 0.1 and 1.0, along with the data validation behind them.",
+      "lead": "Frontend engineer on ciATHENA from when it started in 2025. Employee of the Quarter, September 2025.",
       "points": [
-        "Built production UI in **React.js**, **Next.js**, and **TypeScript** for ciATHENA 0.1 and 1.0, including **10+ reusable components** that cut duplicated code and sped up feature delivery.",
-        "Shipped features for **4 client-facing products** used by life-sciences clients (**LENS**, **TPA**, **CORE**, and **Patient Flow**), with REST API integration and responsive desktop-to-tablet layouts.",
-        "Built conversational analytics interfaces with streaming **Server-Sent Events (SSE)**, session restore, and duplicate-request guards; fixed an **ECharts** bug that recovered **11 product series across 21 months**, covered by **14 regression tests**.",
-        "Contributed to data-review and match-and-merge (MDM) workflows: review screens, batch approvals, and safeguards that hold uncertain matches for human review, backed by **Python** and **SQL**.",
-        "Added **Jest** unit tests, ran end-to-end QA (edge cases, empty and error states, regression), and refactored **5+ modules**."
+        "Built the interface for ciATHENA's first 5–6 use cases, including **MMM**, **FAST**, **Payer Spine** and **Data Stewardship**, from logic described by pharma business experts.",
+        "Built **Field Intelligence** in the ciATHENA hub, including the **MyDay** and **District View** screens and their charts, in **React.js**, **Next.js** and **TypeScript**.",
+        "Built the conversational analytics interface with streaming **Server-Sent Events (SSE)**, ongoing threads, session restore and duplicate-request guards.",
+        "Built **10+ reusable components** that the use cases share, and fixed an **ECharts** bug that recovered **11 product series across** **21 months**, with **14 regression tests**.",
+        "Shipped features for **4 client-facing products** (**LENS**, **TPA**, **CORE**, **Patient Flow**) with REST API integration and responsive layouts.",
+        "Wrote **Jest** unit tests, ran QA across full user flows, and refactored **5+ modules**."
       ]
     }
   ],
@@ -52,84 +55,88 @@
       "JavaScript (ES6+)",
       "HTML5",
       "CSS3",
-      "React Hooks",
-      "Context API",
-      "Material UI",
       "Zustand",
       "TanStack Query",
+      "Material UI",
       "ECharts",
-      "Responsive Design",
-      "Component Architecture",
-      "Performance Optimization"
+      "Responsive Design"
     ],
     "Backend & APIs": [
-      "Node.js",
-      "Express.js",
       "Python",
       "FastAPI",
+      "Pydantic",
+      "Node.js",
+      "Express.js",
       "REST API Design",
+      "GraphQL",
       "Server-Sent Events",
       "JSON",
+      "Async Programming",
+      "Performance Optimization"
+    ],
+    "AI & LLM": [
+      "Agentic AI",
+      "LangChain",
+      "LangGraph",
+      "RAG",
+      "LLM Integration",
+      "Azure OpenAI",
+      "Text Embeddings",
+      "Semantic/Vector Search (Chroma)",
+      "AI Agents",
+      "Human-in-the-Loop",
+      "Prompt Engineering"
+    ],
+    "Databases & Data": [
       "PostgreSQL",
+      "Snowflake",
       "SQL",
       "MongoDB",
-      "Pagination & Filtering"
+      "Data Modeling",
+      "Data Validation & Quality"
     ],
-    "AI & Data": [
-      "Retrieval-Augmented Generation (RAG)",
-      "Semantic/Vector Search",
-      "Text Embeddings",
-      "LLM Integration",
-      "Unified Data Modeling (UDM)",
-      "Data Validation & Normalization"
+    "System Design": [
+      "Scalable Service Design",
+      "Config-Driven Architecture",
+      "Event Streaming (SSE)",
+      "Audit Logging",
+      "Feature Flags"
     ],
-    "Testing & Quality": [
-      "Jest",
-      "pytest",
-      "End-to-End QA",
-      "SonarQube",
-      "Code Review",
-      "Debugging",
-      "Root-Cause Analysis"
-    ],
-    "Tools & Practices": [
+    "Cloud, Testing & Practices": [
+      "GitHub Actions (CI/CD)",
+      "Docker",
+      "Microsoft Azure (Containers",
+      "Blob Storage)",
       "Git",
       "GitHub",
-      "Figma",
-      "Microsoft Azure",
-      "VS Code",
+      "Linux",
+      "Jest",
+      "pytest",
+      "SonarQube",
+      "Jira",
+      "Code Review",
+      "Debugging",
       "Agile/Scrum",
-      "SDLC",
-      "Jupyter Notebook",
-      "Power BI"
+      "Figma"
     ]
   },
   "projects": [
-    {
-      "name": "Developer Portfolio",
-      "stack": "Next.js 16, React 19, TypeScript",
-      "repo": "https://github.com/Piyushtatrari/piyush-portfolio-v3",
-      "dates": "2026",
-      "points": [
-        "Built a statically exported portfolio on the Next.js App Router, using server components by default and client components only where there is interaction, with light and dark themes and animated SVG."
-      ]
-    },
     {
       "name": "Churn Prediction & Analysis",
       "stack": "Python, scikit-learn, Flask",
       "repo": "https://github.com/Piyushtatrari/Churn_Prediction",
       "dates": "Nov 2023 – Dec 2023",
       "points": [
-        "Built an end-to-end ML pipeline (EDA, feature engineering, SMOTEENN rebalancing, Decision Tree and Random Forest) reaching **~93% accuracy**; served predictions through a Flask app and wrote churn-reduction recommendations."
+        "Built a machine learning model that predicts customer churn with **~93% accuracy** and serves predictions through a Flask app."
       ]
     },
     {
       "name": "SkySketch",
-      "stack": "Computer Vision Drawing App",
+      "stack": "Python, OpenCV, MediaPipe",
       "repo": "https://github.com/Piyushtatrari/SkySketch",
       "dates": "Sep 2023 – Oct 2023",
       "points": [
-        "Developed a real-time, gesture-controlled drawing canvas using OpenCV, NumPy, and MediaPipe, and tuned the hand tracking until strokes followed the hand smoothly."
+        "Built a real-time drawing app controlled by hand gestures, using OpenCV and MediaPipe to track the index finger."
       ]
     }
   ],
@@ -143,7 +150,6 @@
     }
   ],
   "certifications": [
-    "Data Analysis with Python – IBM / Cognitive Class; Google Data Analytics coursework (Foundations, Data-Driven Decisions, Data Preparation) – Coursera",
-    "Virtual experience programs (Forage): Accenture Nordics Developer, J.P. Morgan Software Engineering, Tata Data Visualisation"
+    "Data Analysis with Python – IBM; Google Data Analytics – Coursera; Forage: Accenture Nordics Developer, JPMorgan Software Engineering"
   ]
 }

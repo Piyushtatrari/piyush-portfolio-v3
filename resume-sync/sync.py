@@ -93,7 +93,8 @@ def parse(pdf_bytes):
                 entry = {"title": title, "school": school, "note": note, "dates": dates, "points": []}
                 out["education"].append(entry)
             last = None
-        elif section == "experience" and first["flags"] & BOLD and not text.startswith(BULLET):  # company row
+        # company row: bold name, then the location pushed to the right edge (two spans, wide gap). A wrapped bullet line that merely starts bold has no such gap.
+        elif section == "experience" and first["flags"] & BOLD and not text.startswith(BULLET) and len(spans) == 2 and spans[1]["bbox"][0] - first["bbox"][2] > 80:
             org, location = _plain(first["text"]), _plain(_rich(spans[1:]))
         elif text.startswith(BULLET):
             last = entry["points"] if entry is not None else loose.setdefault(section, [])
