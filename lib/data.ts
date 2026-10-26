@@ -3,8 +3,8 @@
 // resume-sync/ regenerates from the resume PDF. Edit the resume, not those sections.
 import resume from "@/content/resume.json";
 
-const startOf = (dates: string) => Date.parse(`1 ${dates.split(" – ")[0]}`);
-const when = (dates: string) => dates.replace(" – ", " to ").replace("Present", "now");
+const startOf = (dates: string) => Date.parse(`1 ${dates.split(/ [–-] /)[0]}`);
+const when = (dates: string) => dates.replace(/ [–-] /, " to ").replace("Present", "now");
 // First day of the earliest role; <CountUp since> turns it into whole years in the visitor's browser,
 // so the number stays current between deploys. The build-time value is only the no-JS fallback.
 export const careerStart = Math.min(...resume.experience.map((r) => startOf(r.dates)));

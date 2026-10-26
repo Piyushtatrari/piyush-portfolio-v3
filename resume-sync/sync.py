@@ -50,6 +50,12 @@ def _links(page, spans):
     return [l["uri"] for l in page.get_links() if l.get("uri") and l["from"].y0 < y1 and l["from"].y1 > y0]
 
 
+def _split(head):
+    """'Name - rest': v9+ resumes use an ASCII hyphen, older ones an en dash."""
+    parts = re.split(r" [–-] ", head, maxsplit=1)
+    return parts[0], " - ", parts[1] if len(parts) > 1 else ""
+
+
 def parse(pdf_bytes):
     doc = pymupdf.open(stream=pdf_bytes, filetype="pdf")
     out = {"name": "", "contact": [], "links": [], "summary": "", "experience": [], "skills": {}, "projects": [],
@@ -67,7 +73,9 @@ def parse(pdf_bytes):
         if first["size"] >= 10.5 and first["flags"] & BOLD:  # section heading
             section, entry, last = _plain(text).lower(), None, None
             continue
-        if section is None:  # header block: contact lines
+        if section is None:  # header block: contact lines (the bold headline row is not contact info)
+            if first["flags"] & BOLD:
+                continue
             out["contact"] += [p.strip() for p in _plain(text).split("|") if p.strip()]
             out["links"] += _links(page, spans)
             continue
@@ -82,13 +90,13 @@ def parse(pdf_bytes):
                 entry = {"org": org, "location": location, "title": head, "dates": dates, "lead": "", "points": []}
                 out["experience"].append(entry)
             elif section == "projects":
-                name, _, stack = head.partition(" – ")
+                name, _, stack = _split(head)
                 links = _links(page, spans)
                 entry = {"name": name, "stack": re.sub(r"\[\w+\]", "", stack).strip(), "repo": next((l for l in links if "github.com" in l), None),
                          "dates": dates, "points": []}
                 out["projects"].append(entry)
             else:
-                title, _, rest = head.partition(" – ")
+                title, _, rest = _split(head)
                 school, _, note = rest.partition(" · ")
                 entry = {"title": title, "school": school, "note": note, "dates": dates, "points": []}
                 out["education"].append(entry)
@@ -101,6 +109,9 @@ def parse(pdf_bytes):
             last.append(text[1:].strip())
         elif first["flags"] & ITALIC and entry is not None and "lead" in entry:
             entry["lead"] = f"{entry['lead']} {_plain(text)}".strip()
+        elif section == "certifications":  # one plain paragraph (v9+), wrapped lines joined
+            last = loose.setdefault(section, [""])
+            last[-1] = f"{last[-1]} {text}".strip()
         elif last:  # wrapped continuation of the previous bullet
             last[-1] += " " + text
 
