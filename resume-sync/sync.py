@@ -123,9 +123,27 @@ def parse(pdf_bytes):
 
 
 def check(data):
-    """Problems that should block publishing, so a bad parse can never blank the live portfolio."""
-    # TODO(human)
-    return []
+    """Problems that should block publishing, so a bad parse can never blank the live portfolio.
+    Only checks what lib/data.ts renders: experience, education, projects (keyed by repo) and skills."""
+    problems = []
+    if not data["experience"]:
+        problems.append("no experience entries parsed")
+    for r in data["experience"]:
+        if not DATES.match(r["dates"]):
+            problems.append(f"role '{r['title']}' has unparseable dates: {r['dates']!r}")
+        if not r["points"]:
+            problems.append(f"role '{r['title']}' has no bullet points")
+    for p in data["projects"]:
+        if re.search(r" [–-] |\[GitHub\]", p["name"]):
+            problems.append(f"project name still holds its stack: {p['name']!r}")
+    if data["projects"] and not any(p["repo"] for p in data["projects"]):
+        problems.append("no project has a GitHub repo link")
+    for e in data["education"]:
+        if not e["school"]:
+            problems.append(f"education '{e['title']}' has no school")
+    if not data["skills"]:
+        problems.append("no skills parsed (expected a 'Technical Skills' section)")
+    return problems
 
 
 def publish(pdf_bytes, data, label="Full_Stack", push=True):
